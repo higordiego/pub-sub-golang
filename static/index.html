@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var ws = new WebSocket("ws://127.0.0.1:3000/ws")
+
+        ws.onopen = function() {
+            console.log('connected')
+        }
+
+        ws.onmessage = function(msg) {
+            console.log('Server message', msg.data)
+        }
+
+        ws.onclose = function() {
+            console.log('close connect')
+        }
+
+        window.ws = ws
+    </script>
+</body>
+
+</html>
